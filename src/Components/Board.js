@@ -47,6 +47,10 @@ export default function Board() {
       alert("Awesome! You achieved the highest possible score of 12!")
       setCurrentScore(0);
       setClickHistory([]);
+    };
+    if (currentScore === 0) {
+      setCurrentScore(0);
+      setClickHistory([]);
     }
   }, [currentScore])
 
@@ -55,13 +59,6 @@ export default function Board() {
     setCurrentScore((prevScore) => clickHistory.includes(pokemon) ? 0 : prevScore + 1);
     setPokemons((prevPokemons) => shufflePokemons(prevPokemons));
     setClickHistory(() => ([...clickHistory, pokemon]));
-  }
-
-  // Reset game button
-  const resetGame = () => {
-    setCurrentScore(0);
-    setBestScore(0);
-    setClickHistory([]);
   }
 
   return (
